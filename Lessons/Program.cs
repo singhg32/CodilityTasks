@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 
 class Solution
 {
-    public int BinaryCount(int n)
+    public static int BinaryCount(int n)
     {
 
         int greatestcount = 0;
@@ -24,9 +24,6 @@ class Solution
             {
                 counter++;
             }
-            
- 
-            
         }
 
         return greatestcount;
@@ -35,7 +32,7 @@ class Solution
 
 
 
-    public int[] CyclicalRotation(int[] A, int K)
+    public static int[] CyclicalRotation(int[] A, int K)
     {
         int[] B = new int[A.Length];
         for (int i = 0; i < K; i++)
@@ -54,7 +51,7 @@ class Solution
         }
         return A;
     }
-    public int OddOccurences(int[] A)
+    public static int OddOccurences(int[] A)
     {
         Dictionary<int, int> pairs = new Dictionary<int, int>();
         foreach (int a in A)
@@ -77,7 +74,7 @@ class Solution
         }
         return 0;
     }
-    public int FrogJump(int X, int Y, int D)
+    public static int FrogJump(int X, int Y, int D)
     {
         int distance = Math.Abs(Y - X);
         double check = distance / D;
@@ -90,7 +87,7 @@ class Solution
         return Jumps;
     }
 
-    public int PermMissingElem(int[] A)
+    public static int PermMissingElem(int[] A)
     {
         Array.Sort(A);
         for (int i = 0; i < A.Length; i++)
@@ -103,6 +100,21 @@ class Solution
         }
         return 0;
 
+    }
+    public static int solution(int[] A)
+    {
+        int lowest = 100000000;
+        for (int i = 0; i < A.Length; i++)
+        {
+            int a = A.Skip(i).Sum();
+            int b = Math.Abs(a - A.Sum());
+            int c = Math.Abs(b - a);
+            if (c < lowest)
+            {
+                lowest = c;
+            }
+        }
+        return lowest;
     }
     static int test()
     {
